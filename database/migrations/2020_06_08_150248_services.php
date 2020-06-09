@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Services extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->primary('services_id');
+            $table->integer('services_id')->comment("services ID");
+            $table->string('name')->comment("services Name");
+            $table->char('icon_link', 200)->comment('Link Icon');
+            $table->text('describe')->comment('Describe');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('services');
+    }
+}
