@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ImagesHotel extends Migration
+class ImagesRoom extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class ImagesHotel extends Migration
      */
     public function up()
     {
-        Schema::create('images_hotel', function (Blueprint $table) {
+        Schema::create('images_room', function (Blueprint $table) {
             $table->primary('images_id');
             $table->char('images_id', 200)->comment('Image ID');
-            $table->char('hotel_id',200)->comment('Hotel Id');
+            $table->char('rooms_id', 200)->comment('Rooms ID');
             $table->char('name', 250)->comment("Name Images");
-            $table->foreign('hotel_id')->references('hotel_id')->on('hotels');
+            $table->foreign('rooms_id')->references('rooms_id')->on('rooms');
         });
     }
 
@@ -29,6 +29,6 @@ class ImagesHotel extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('images_room');
     }
 }
