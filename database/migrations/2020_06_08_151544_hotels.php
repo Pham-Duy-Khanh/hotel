@@ -14,8 +14,9 @@ class Hotels extends Migration
     public function up()
     {
         Schema::create('hotels', function (Blueprint $table) {
-            $table->integer('hotel_id', true)->comment('Hotel ID');
-            $table->integer('admin_id')->comment('Admin Id');
+            $table->primary('hotel_id');
+            $table->char('hotel_id', 200)->comment('Hotel ID');
+            $table->char('admin_id',250)->comment('Admin Id');
             $table->char('name',250)->comment('Hotel Name');
             $table->string('address')->nullable()->comment("Address");
             $table->char('count_star',250)->comment('Rating');

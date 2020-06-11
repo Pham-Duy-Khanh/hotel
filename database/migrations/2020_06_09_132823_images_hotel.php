@@ -14,8 +14,9 @@ class ImagesHotel extends Migration
     public function up()
     {
         Schema::create('images_hotel', function (Blueprint $table) {
-            $table->integer('images_id', true)->comment('Image ID');
-            $table->integer('hotel_id')->comment('Hotel Id');
+            $table->primary('images_id');
+            $table->char('images_id', 200)->comment('Image ID');
+            $table->char('hotel_id',200)->comment('Hotel Id');
             $table->char('name', 250)->comment("Name Images");
             $table->foreign('hotel_id')->references('hotel_id')->on('hotels');
         });

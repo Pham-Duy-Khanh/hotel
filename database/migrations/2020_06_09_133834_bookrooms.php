@@ -14,10 +14,11 @@ class Bookrooms extends Migration
     public function up()
     {
         Schema::create('bookrooms', function (Blueprint $table) {
-            $table->integer('book_room_id', true)->comment('Book Rooms ID');
+            $table->primary('book_room_id');
+            $table->char('book_room_id', 200)->comment('Book Rooms ID');
             $table->integer('customer_id')->comment("Customer ID");
-            $table->integer('hotel_id')->comment('Hotel ID');
-            $table->integer('rooms_id')->comment('Rooms ID');
+            $table->char('hotel_id', 200)->comment('Hotel ID');
+            $table->char('rooms_id', 200)->comment('Rooms ID');
             $table->date('book_at')->comment('Ngay Dat');
             $table->date('in_at')->comment('Ngay Nhan Phong');
             $table->date('out_at')->comment('Ngay Tra Phong');

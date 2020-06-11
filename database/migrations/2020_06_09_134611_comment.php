@@ -14,9 +14,10 @@ class Comment extends Migration
     public function up()
     {
         Schema::create('comment', function (Blueprint $table) {
-            $table->integer('comment_id',true)->comment('Comment ID');
+            $table->primary('comment_id');
+            $table->char('comment_id', 200)->comment('Comment ID');
             $table->integer('customer_id')->comment("Customer ID");
-            $table->integer('hotel_id')->comment('Hotel ID');
+            $table->char('hotel_id', 200)->comment('Hotel ID');
             $table->string('content')->comment("Noi Dung");
             $table->integer('status');
             $table->date('create_at');

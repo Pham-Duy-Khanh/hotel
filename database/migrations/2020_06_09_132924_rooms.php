@@ -14,8 +14,9 @@ class Rooms extends Migration
     public function up()
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->integer('rooms_id', true)->comment('Rooms ID');
-            $table->integer('hotel_id')->comment('Hotel ID');
+            $table->primary('rooms_id');
+            $table->char('rooms_id', 200)->comment('Rooms ID');
+            $table->char('hotel_id', 200)->comment('Hotel ID');
             $table->string('name')->comment("Rooms Name");
             $table->integer('services_id')->comment('Services Id');
             $table->integer('acreage')->comment("Dien Tich");

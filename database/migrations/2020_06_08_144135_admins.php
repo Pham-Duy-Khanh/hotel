@@ -14,7 +14,8 @@ class Admins extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->integer('admin_id', true)->comment("Admin ID");
+            $table->primary('admin_id');
+            $table->char('admin_id', 200)->comment("Admin ID");
             $table->string('name')->comment("Name");
             $table->string('username')->index()->comment("User Name");
             $table->string('email', 25)->unique()->comment("Email");
