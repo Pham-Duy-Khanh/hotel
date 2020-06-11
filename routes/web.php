@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Admin Login
+Route::group(["prefix" => "admin"], function(){
+    Route::get("login", 'Admin\UserController@index');
+
+
+//    Route::get("processLogin","Admin\UserController@processLogin")
+//        ->name("processLogin");
+});
+Route::post('processLogin', "Admin\UserController@processLogin");
