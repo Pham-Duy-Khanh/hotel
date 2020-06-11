@@ -49,7 +49,38 @@
 
 <body>
 	<div class="colorlib-loader"></div>
+	 @if(isset($register))
+        @if($register > 0)
+            <div class="success" style="position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 16px 50px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 12px #d0d0d0;">
+                <h4 style="font-size: 20px;
+    padding-bottom: 6px;
+    color: #222222;
+    border-bottom: 1px solid #253db299;">Đăng kí thành công</h4>
+                <a href="{{ route('login') }}" style="float: right;
+    padding: 4px 16px;
+    background: #007bff;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 15px;">ok</a>
+            </div>
+        @else
+            <div class="error">
+                <h4>Đăng kí thất bại</h4>
+                <button id="hide">Ok</button>
+                <!--js $('#hide').remove-->
+            </div>
+        @endif
+    @endif
 	<div id="page">
+
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container-fluid">
@@ -97,34 +128,68 @@
 				</ul>
 			</div>
 		</aside>
+		@if(old())
+			{{--@dd (old());--}}
+		@endif
 		<div id="colorlib-contact">
+			
 			<div class="container">
 				<div class="row probootstrap-gutter40">
 					<div class="col-md-12">
 						<h2 class="mt0" style="line-height: 1.2;font-weight: 300;font-family: 'Crimson Text',serif ;color: #000;">Registration Hotel</h2>
-						<form action="#" method="post" class="probootstrap-form">
+						<form action="{{ route("insert_register") }}" method="post" class="probootstrap-form">
+							@csrf
 							<div class="form-group">
 								<label for="email">Email</label> <i class="icon icon-mail"></i>
 								<div class="form-field">
-									<input type="email" class="form-control" id="email" name="email"> </div>
+									<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+								</div>
+								@if ($errors->has('email'))
+                                	<p class="text-danger">{{$errors->first('email')}}</p>
+                             	@endif
 							</div>
 							<div class="form-group">
 								<label for="email">Password</label>
 								<div class="form-field"> 
-									<input type="password" class="form-control" id="password" name="password"> </div>
+									<input type="password" class="form-control" id="password" name="password">
+								</div>
+								@if ($errors->has('password'))
+                                    <p class="text-danger">{{$errors->first('password')}}</p>
+                                @endif
 							</div>
 							<div class="form-group">
 								<label for="email">Confirm Password</label>
 								<div class="form-field"> 
-									<input type="password" class="form-control" id="confirm_password" name="confirm_password"> </div>
+									<input type="password" class="form-control" id="confirm_password" name="confirm_password" >
+								</div>
+								@if ($errors->has('confirm_password'))
+                                     <p class="text-danger">{{$errors->first('confirm_password')}}</p>
+                                 @endif
 							</div>
 							<div class="form-group">
 								<label for="text">Full Name</label>
 								<div class="form-field">
-									<input type="text" class="form-control" id="name" name="name"> </div>
+									<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+								</div>
+								@if ($errors->has('name'))
+                                    <p class="text-danger">{{$errors->first('name')}}</p>
+                                @endif
 							</div>
+
+							<div class="form-group">
+								<label for="text">Thẻ căn cước </label>
+								<div class="form-field">
+									<input type="number" class="form-control" id="cmnd" name="cmnd" value="{{ old('cmnd') }}">
+								</div>
+								@if ($errors->has('cmnd'))
+									<p class="text-danger">{{$errors->first('cmnd')}}</p>
+								@endif
+							</div>
+
 							<div class="form-group text-center">
-								<input type="submit" class="btn btn-primary btn-lg center" id="submit" name="submit" value="register" style="border: 2px solid #36a420;background: #36a420;color: #fff"> 
+								
+								<button class="btn btn-primary btn-lg center" id="submit" name="submit" value="register" style="border: 2px solid #36a420;background: #36a420;color: #fff">Register</button>
+
 							</div>
 							
 						</form>

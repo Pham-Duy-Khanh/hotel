@@ -17,6 +17,6 @@ Route::get("hotel_details", "hotel_controller@hotel_details")->name("hotel_detai
 Route::get('login',"Controller@login")->name('login');
 //registration 
 Route::get('registration',"Controller@register")->name('register');
-Route::post('insert','Controller@insert')->name('register');
+Route::post('registration','Controller@insert')->name('insert_register');
 //room
 Route::get('room_hotel',"hotel_controller@room")->name('room');
