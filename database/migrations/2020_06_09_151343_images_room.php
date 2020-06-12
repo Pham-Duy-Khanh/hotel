@@ -19,6 +19,7 @@ class ImagesRoom extends Migration
             $table->char('name',250)->comment("Name Images");
             $table->foreign('rooms_id')->references('rooms_id')->on('rooms');
         });
+
     }
 
     /**
