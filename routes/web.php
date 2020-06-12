@@ -19,10 +19,18 @@ Route::get('/', function () {
 
 //Admin Login
 Route::group(["prefix" => "admin"], function(){
-    Route::get("login", 'Admin\UserController@index');
+    Route::get("login", 'Admin\UserController@index')->name('admin.login');
+    Route::get('logout',
+        ['as' => 'getLogout', 'uses' => 'Admin\UserController@logout']);
+
+    Route::post('processLogin',
+        ['as' => 'getLogin', 'uses' => 'Admin\UserController@processLogin']);
+
+    Route::get('dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
+
+    Route::get('profile',
+        ['as' => 'getProfile', 'uses' => 'Admin\UserController@profile']);
 
 
-//    Route::get("processLogin","Admin\UserController@processLogin")
-//        ->name("processLogin");
+
 });
-Route::post('processLogin', "Admin\UserController@processLogin");

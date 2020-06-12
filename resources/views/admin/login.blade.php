@@ -22,12 +22,9 @@
     <link rel="stylesheet" href="{{ asset('admin/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/perfect-scrollbar.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/morris.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/select2.min.css')}}">
-
-
     <link rel="stylesheet" href="{{asset('admin/css/jquery-jvectormap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/horizontal-timeline.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/weather-icons.min.css')}}">
@@ -49,31 +46,14 @@
     <div class="m-account-w" data-bg-img="assets/img/account/wrapper-bg.jpg">
         <div class="m-account">
             <div class="row no-gutters">
-                <div class="col-md-6">
-                    <!-- Login Content Start -->
-                    <div class="m-account--content-w" data-bg-img="assets/img/account/content-bg.jpg">
-                        <div class="m-account--content">
-                            <h2 class="h2">Don't have an account?</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <!-- Login Form Start -->
+                <div class="col-md-6" style="margin: auto">
                     <div class="m-account--form-w">
                         <div class="m-account--form">
-                            <!-- Logo Start -->
                             <div class="logo">
                                 <img src="{{asset('admin/img/logo.png')}}" alt="">
                             </div>
-                            <!-- Logo End -->
-
-
-
-
-
-                            <form method="post">
+                            <form method="post" action="{{route('getLogin')}}">
+                                @csrf
                                 <label class="m-account--title">Login to your account</label>
 
                                 <div class="form-group">
@@ -103,25 +83,16 @@
                                 </div>
 
                                 <div class="m-account--footer">
-                                    <p>&copy; 2018 ThemeLooks</p>
+                                    <p>&copy; 2020</p>
                                 </div>
                             </form>
-
-
-
-
-
-
                         </div>
                     </div>
-                    <!-- Login Form End -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- Login Page End -->
 </div>
-<!-- Wrapper End -->
 
 <!-- Scripts -->
 
