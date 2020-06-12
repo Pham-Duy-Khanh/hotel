@@ -20,4 +20,13 @@ class Admin {
         return $array;
     }
 
+    public function checkAdmin($adminId) {
+        $array = DB::select("select * from $this->table
+    		where admin_id = ?
+    		limit 1",[
+            $adminId
+        ]);
+        return $array;
+    }
+
 }

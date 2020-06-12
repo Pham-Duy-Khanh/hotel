@@ -97,7 +97,7 @@
                 <!-- Nav Language Start -->
                 <li class="nav-item dropdown nav-language">
                     <a href="#" class="nav-link" data-toggle="dropdown">
-                        <img src="assets/img/flags/us.png" alt="">
+                        <img src="{{asset('admin/img/flags/us.png')}}" alt="">
                         <span>English</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
@@ -105,19 +105,19 @@
                     <ul class="dropdown-menu">
                         <li>
                             <a href="">
-                                <img src="assets/img/flags/de.png" alt="">
+                                <img src="{{asset('admin/img/flags/de.png')}}" alt="">
                                 <span>German</span>
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="assets/img/flags/fr.png" alt="">
+                                <img src="{{asset('admin/img/flags/fr.png')}}" alt="">
                                 <span>French</span>
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="assets/img/flags/us.png" alt="">
+                                <img src="{{asset('admin/img/flags/us.png')}}" alt="">
                                 <span>English</span>
                             </a>
                         </li>
@@ -138,7 +138,7 @@
                         <li><a href="mailbox_inbox.html"><i class="far fa-envelope"></i>Inbox</a></li>
                         <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock Screen</a></li>
+                        <li><a href="{{ route('getLockScreen', Session::get('admin_id')) }}"><i class="fa fa-lock"></i>Lock Screen</a></li>
                         <li><a href="{{route('getLogout')}}"><i class="fa fa-power-off"></i>Logout</a></li>
                     </ul>
                 </li>
@@ -170,7 +170,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="lock-screen.html" class="nav-link" title="Lock Screen">
+                        <a href="{{ route('getLockScreen', Session::get('admin_id')) }}" class="nav-link" title="Lock Screen" aria-keyshortcuts="Alt+Shift+R">
                             <i class="fa fa-lock"></i>
                         </a>
                     </li>
@@ -355,7 +355,7 @@
                                 <li><a href="login.html">Login</a></li>
                                 <li><a href="register.html">Register</a></li>
                                 <li><a href="forgot-password.html">Forgot Password</a></li>
-                                <li><a href="lock-screen.html">Lock Screen</a></li>
+                                <li><a href="{{ route('getLockScreen', Session::get('admin_id')) }}">Lock Screen</a></li>
                                 <li><a href="404.html">404 Error</a></li>
                                 <li><a href="500.html">500 Error</a></li>
                                 <li><a href="maintenance.html">Maintenance</a></li>

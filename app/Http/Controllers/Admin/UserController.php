@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -48,14 +49,50 @@ class UserController extends Controller
     }
 
     public function dashboard() {
-        return view('admin.dashboard');
+        $adminId = $this->request->session()->get('admin_id');
+        $username = $this->request->session()->get('username');
+        if ($this->request->session()->get('error')) {
+            $this->request->session()->remove('error');
+        }
+        if ($adminId != null && $username != null) {
+            return view('admin.dashboard');
+        } else {
+            return view('admin.login');
+        }
     }
 
     public function logout() {
+        Auth::logout();
+        $this->request->session()->invalidate();
         return redirect()->route('admin.login');
     }
 
     public function profile() {
         return view('admin.profile');
+    }
+
+    public function getLockScreen($admin_id) {
+        \Illuminate\Support\Facades\Session::put('admin_id', $admin_id);
+        $this->request->session()->remove('username');
+        return view('admin.lockScreen');
+    }
+
+    public function checkAdmin($adminId) {
+        $checkData = $this->admin->checkAdmin($adminId);
+        if (count($checkData) >= 1) {
+            $checkPass = $this->request->get('password');
+            $passAdmin = $checkData[0]->password;
+            if ($checkPass == $passAdmin) {
+                \Illuminate\Support\Facades\Session::put('admin_id', $adminId);
+                \Illuminate\Support\Facades\Session::put('username', $checkData[0]->username);
+                return redirect()->route('admin.dashboard');
+            } else {
+                \Illuminate\Support\Facades\Session::put('admin_id', $adminId);
+                \Illuminate\Support\Facades\Session::put('error', 'Sai mat khau');
+                return view('admin.lockScreen');
+            }
+        } else {
+            return $this->logout();
+        }
     }
 }
