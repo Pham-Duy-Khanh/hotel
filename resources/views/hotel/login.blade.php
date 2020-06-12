@@ -114,8 +114,15 @@
             <div class="container">
                 <div class="row probootstrap-gutter40">
                     <div class="col-md-6">
-                        <h2 class="mt0" style="line-height: 1.2;font-weight: 300;font-family: 'Crimson Text',serif ;color: #000;">Login Hotel</h2>
-                        <form action="#" method="post" class="probootstrap-form">
+                        <h2 class="mt0" style="line-height: 1.2;font-weight: 300;font-family: 'Crimson Text',serif ;color: #000;">
+							@if (Session::has('error1'))
+
+								{{Session::get('error1')}}
+							@else
+								Login Hotel
+							@endif
+							</h2>
+                        <form action="{{ route('process_login_user') }}" method="post" class="probootstrap-form">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
