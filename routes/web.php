@@ -45,6 +45,14 @@ Route::group(["prefix" => "admin"], function(){
             ['as' => 'deleteCustomer', 'uses' => 'Admin\CustomerController@deleteCustomer']);
     });
 
+    Route::group(["prefix" => "staff"], function(){
+        Route::get('showStaff',
+            ['as' => 'showStaff', 'uses' => 'Admin\AdminController@showStaff']);
+
+        Route::get('addAdmin',
+            ['as' => 'addAdmin', 'uses' => 'Admin\AdminController@addAdmin']);
+    });
+
 
 
 });

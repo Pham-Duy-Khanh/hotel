@@ -209,7 +209,7 @@
                             <ul>
                                 <li><a href="{{route('showAllCustomer')}}">All Customer</a></li>
                                 @if(Session::get('role') == 1)
-                                <li><a href="products.html">Staff</a></li>
+                                <li><a href="{{route('showStaff')}}">Staff</a></li>
                                 @endif
                             </ul>
                         </li>
