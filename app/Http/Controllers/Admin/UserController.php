@@ -40,8 +40,10 @@ class UserController extends Controller
         if (count($checkData) >= 1) {
             $adminId = $checkData[0]->admin_id;
             $username = $checkData[0]->username;
+            $role = $checkData[0]->role;
             \Illuminate\Support\Facades\Session::put('admin_id', $adminId);
             \Illuminate\Support\Facades\Session::put('username', $username);
+            \Illuminate\Support\Facades\Session::put('role', $role);
             return redirect()->route('admin.dashboard')->with('messages',' Welcome Admin: ');
 
         }
@@ -85,6 +87,7 @@ class UserController extends Controller
             if ($checkPass == $passAdmin) {
                 \Illuminate\Support\Facades\Session::put('admin_id', $adminId);
                 \Illuminate\Support\Facades\Session::put('username', $checkData[0]->username);
+                \Illuminate\Support\Facades\Session::put('role', $checkData[0]->role);
                 return redirect()->route('admin.dashboard');
             } else {
                 \Illuminate\Support\Facades\Session::put('admin_id', $adminId);

@@ -202,16 +202,15 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Ecommerce</span>
+                                <i class="fa fa-user"></i>
+                                <span>Customer</span>
                             </a>
 
                             <ul>
-                                <li><a href="ecommerce.html">Dashboard</a></li>
-                                <li><a href="products.html">Products</a></li>
-                                <li><a href="products-edit.html">Edit Products</a></li>
-                                <li><a href="orders.html">Orders</a></li>
-                                <li><a href="order-view.html">Order View</a></li>
+                                <li><a href="{{route('showAllCustomer')}}">All Customer</a></li>
+                                @if(Session::get('role') == 1)
+                                <li><a href="products.html">Staff</a></li>
+                                @endif
                             </ul>
                         </li>
                     </ul>

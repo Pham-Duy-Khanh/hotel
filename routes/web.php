@@ -37,6 +37,14 @@ Route::group(["prefix" => "admin"], function(){
     Route::post('checkAdmin/{adminId}',
         ['as' => 'checkAdmin', 'uses' => 'Admin\UserController@checkAdmin']);
 
+    //Customer
+    Route::group(["prefix" => "customer"], function(){
+        Route::get('showAllCustomer',
+            ['as' => 'showAllCustomer', 'uses' => 'Admin\CustomerController@getAllCustomer']);
+        Route::get('deleteCustomer',
+            ['as' => 'deleteCustomer', 'uses' => 'Admin\CustomerController@deleteCustomer']);
+    });
+
 
 
 });
