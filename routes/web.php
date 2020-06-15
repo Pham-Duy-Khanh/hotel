@@ -51,6 +51,12 @@ Route::group(["prefix" => "admin"], function(){
 
         Route::get('addAdmin',
             ['as' => 'addAdmin', 'uses' => 'Admin\AdminController@addAdmin']);
+
+        Route::get('deleteAdmin/{admin_id}',
+            ['as' => 'deleteAdmin', 'uses' => 'Admin\AdminController@deleteAdmin']);
+
+        Route::get('lockAccount/{admin_id}',
+            ['as' => 'lockAccount', 'uses' => 'Admin\AdminController@lockAccount']);
     });
 
 

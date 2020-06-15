@@ -42,4 +42,14 @@ class AdminController extends Controller
         return $result;
     }
 
+    public function deleteAdmin($adminId) {
+        $this->admin->deleteAdmin($adminId);
+        return redirect('admin/staff/showStaff')->with('messages', 'Xóa thành công');
+    }
+
+    public function lockAccount($adminId) {
+        $this->admin->lockAccount($adminId);
+        return redirect('admin/staff/showStaff')->with('messages', 'Đã Khóa Tài Khoản');
+    }
+
 }

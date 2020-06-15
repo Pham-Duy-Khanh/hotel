@@ -7,10 +7,19 @@
         <!-- Main Content Start -->
         <section class="main--content">
             <div class="col-md-4">
+
                 <!-- Panel Start -->
                 <div class="panel" style="margin-left: 700px; background: red; width: 80%">
                     <a href="#formInModal" class="btn btn-rounded btn-block btn-success" data-toggle="modal">Add Admin</a>
                 </div>
+
+                @if (session('messages'))
+                    <div class="callout callout-info" style="color: green">
+                        {{ session('messages') }}
+                    </div>
+                @endif
+
+                <div id="showText" style="color: green; font-size: 20px"></div>
                 <!-- Panel End -->
 
                 <!-- Modal Start -->
@@ -24,16 +33,17 @@
                             </div>
 
                             <div class="modal-body pt-4">
+                                <div id="text" style="color: red;"></div><br>
                                 <div class="form-group">
                                     <label>
                                         <span class="label-text">First Name</span>
-                                        <input type="email" name="email" placeholder="Enter First Name..." class="form-control" id="firestname">
+                                        <input type="text" name="email" placeholder="Enter First Name..." class="form-control" id="firestname">
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label>
                                         <span class="label-text">Last Name</span>
-                                        <input type="email" name="email" placeholder="Enter Last Name..." class="form-control" id="lastname">
+                                        <input type="text" name="email" placeholder="Enter Last Name..." class="form-control" id="lastname">
                                     </label>
                                 </div>
 
@@ -86,12 +96,12 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th class="not-sortable">Image</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Created Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Birthday</th>
+                            <th>Gender</th>
                             <th>Status</th>
                             <th class="not-sortable">Actions</th>
                         </tr>
@@ -104,7 +114,7 @@
                                 </td>
                                 <td>
                                     <a href="#" class="btn-link">
-                                        {{$data->username}}
+                                        {{$data->name}} {{$data->username}}
                                     </a>
                                 </td>
                                 <td>
@@ -146,8 +156,8 @@
                                         <a href="#" class="btn-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
 
                                         <div class="dropdown-menu">
-                                            <a href="#" class="dropdown-item">Edit</a>
-                                            <a href="#" class="dropdown-item">Delete</a>
+                                            <a href="{{ route('lockAccount', $data->admin_id) }}" class="dropdown-item">Lock account</a>
+                                            <a href="{{ route('deleteAdmin', $data->admin_id) }}" class="dropdown-item" id="deleteAdmin">Delete</a>
                                         </div>
                                     </div>
                                 </td>
@@ -174,7 +184,6 @@
 <!-- Scripts -->
 @include("admin.content.jsdefault")
 <script src="{{asset('admin/js/admin/addAdmin.js')}}"></script>
-
 <!-- Page Level Scripts -->
 
 </body>
