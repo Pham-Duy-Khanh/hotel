@@ -15,8 +15,8 @@ class Admin {
 
     public function getInsert($firestname, $lastname, $email, $formRadioInput, $pass) {
         $values = array(
-            'name' => $firestname,
-            'username' => $lastname,
+            'firstname' => $firestname,
+            'lastname' => $lastname,
             'email' => $email,
             'password' => $pass,
             'gender' => $formRadioInput,

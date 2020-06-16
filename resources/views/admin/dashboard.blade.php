@@ -871,7 +871,7 @@
                             </div>
 
                             <div class="name">
-                                <h3 class="h3">{{Session::get('username')}}</h3>
+                                <h3 class="h3">{{Session::get('firstname')}} {{Session::get('lastname')}}</h3>
                             </div>
 
                             <div class="role">

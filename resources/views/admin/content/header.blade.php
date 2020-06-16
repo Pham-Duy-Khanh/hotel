@@ -129,7 +129,7 @@
                 <li class="nav-item dropdown nav--user online">
                     <a href="#" class="nav-link" data-toggle="dropdown">
                         <img src="https://static.yeah1.com/uploads/editors/27/2020/03/21/JaZBMzV14fzRI4vBWG8jymplSUGSGgimkqtJakOV.jpeg" alt="" class="rounded-circle">
-                        <span>{{Session::get('username')}}</span>
+                        <span>{{Session::get('firstname')}} {{Session::get('lastname')}}</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
 
@@ -159,7 +159,7 @@
             </div>
 
             <div class="profile--name">
-                <a href="profile.html" class="btn-link">{{Session::get('username')}}</a>
+                <a href="profile.html" class="btn-link">{{Session::get('firstname')}} {{Session::get('lastname')}}</a>
             </div>
 
             <div class="profile--nav">

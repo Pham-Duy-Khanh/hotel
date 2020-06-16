@@ -39,10 +39,12 @@ class UserController extends Controller
         $checkData = $this->admin->getLogin($email,$pass);
         if (count($checkData) >= 1) {
             $adminId = $checkData[0]->admin_id;
-            $username = $checkData[0]->username;
+            $firstname = $checkData[0]->firstname;
+            $lastname = $checkData[0]->lastname;
             $role = $checkData[0]->role;
             \Illuminate\Support\Facades\Session::put('admin_id', $adminId);
-            \Illuminate\Support\Facades\Session::put('username', $username);
+            \Illuminate\Support\Facades\Session::put('firstname', $firstname);
+            \Illuminate\Support\Facades\Session::put('lastname', $lastname);
             \Illuminate\Support\Facades\Session::put('role', $role);
             return redirect()->route('admin.dashboard')->with('messages',' Welcome Admin: ');
 
@@ -52,11 +54,12 @@ class UserController extends Controller
 
     public function dashboard() {
         $adminId = $this->request->session()->get('admin_id');
-        $username = $this->request->session()->get('username');
+        $firstname = $this->request->session()->get('firstname');
+        $lastname = $this->request->session()->get('lastname');
         if ($this->request->session()->get('error')) {
             $this->request->session()->remove('error');
         }
-        if ($adminId != null && $username != null) {
+        if ($adminId != null && $firstname != null && $lastname != null) {
             return view('admin.dashboard');
         } else {
             return view('admin.login');
@@ -86,7 +89,8 @@ class UserController extends Controller
             $passAdmin = $checkData[0]->password;
             if ($checkPass == $passAdmin) {
                 \Illuminate\Support\Facades\Session::put('admin_id', $adminId);
-                \Illuminate\Support\Facades\Session::put('username', $checkData[0]->username);
+                \Illuminate\Support\Facades\Session::put('firstname', $checkData[0]->firstname);
+                \Illuminate\Support\Facades\Session::put('lastname', $checkData[0]->lastname);
                 \Illuminate\Support\Facades\Session::put('role', $checkData[0]->role);
                 return redirect()->route('admin.dashboard');
             } else {

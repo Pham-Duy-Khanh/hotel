@@ -114,7 +114,7 @@
                                 </td>
                                 <td>
                                     <a href="#" class="btn-link">
-                                        {{$data->name}} {{$data->username}}
+                                        {{$data->firstname}} {{$data->lastname}}
                                     </a>
                                 </td>
                                 <td>

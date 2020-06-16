@@ -19,7 +19,7 @@
     <!-- Stylesheets -->
 
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('admin/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/perfect-scrollbar.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}">
@@ -43,7 +43,7 @@
 <!-- Wrapper Start -->
 <div class="wrapper">
     <!-- Login Page Start -->
-    <div class="m-account-w" data-bg-img="assets/img/account/wrapper-bg.jpg">
+    <div class="m-account-w" data-bg-img="{{asset('admin/img/logo2.jpg')}}">
         <div class="m-account">
             <div class="row no-gutters">
                 <div class="col-md-6" style="margin: auto">
@@ -97,24 +97,7 @@
 <!-- Scripts -->
 
 
-<script src="{{asset('admin/js/jquery.min.js')}}"></script>
-<script src="{{asset('admin/js/jquery-ui.min.js')}}"></script>
-<script src="{{asset('admin/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('admin/js/perfect-scrollbar.min.js')}}"></script>
-<script src="{{asset('admin/js/jquery.sparkline.min.js')}}"></script>
-<script src="{{asset('admin/js/raphael.min.js')}}"></script>
-<script src="{{asset('admin/js/morris.min.js')}}"></script>
-<script src="{{asset('admin/js/select2.min.js')}}"></script>
-<script src="{{asset('admin/js/jquery-jvectormap.min.js')}}"></script>
-<script src="{{asset('admin/js/jquery-jvectormap-world-mill.min.js')}}"></script>
-<script src="{{asset('admin/js/horizontal-timeline.min.js')}}"></script>
-<script src="{{asset('admin/js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('admin/js/jquery.steps.min.js')}}"></script>
-<script src="{{asset('admin/js/dropzone.min.js')}}"></script>
-<script src="{{asset('admin/js/ion.rangeSlider.min.js')}}"></script>
-<script src="{{asset('admin/js/datatables.min.js')}}"></script>
-<script src="{{asset('admin/js/main.js')}}"></script>
-<script src="{{asset('admin/js/login/checkAdmin.js')}}"></script>
+@include('admin.content.jsdefault')
 
 <!-- Page Level Scripts -->
 
