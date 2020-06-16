@@ -69,21 +69,12 @@
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li class="has-dropdown">
-									<a href="tours.html">Tours</a>
-									<ul class="dropdown">
-										<li><a href="#">Destination</a></li>
-										<li><a href="#">Cruises</a></li>
-										<li><a href="#">Hotels</a></li>
-										<li><a href="#">Booking</a></li>
-									</ul>
-								</li>
-								<li><a href="hotels.html">Hotels</a></li>
-								<li><a href="services.html">Services</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="about.html">About</a></li>
-								<li class="active"><a href="contact.html">Contact</a></li>
+								<li ><a href="{{route('index')}}">Home</a></li>
+								<li ><a href="{{route('hotel')}}">Hotels</a></li>
+								<li><a href="{{route('services')}}">Services</a></li>
+								<li><a href="{{route('blog')}}">Blog</a></li>
+								<li><a href="{{route('about')}}">About</a></li>
+								<li class="active"><a href="{{route('login')}}">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -122,12 +113,13 @@
 								Login Hotel
 							@endif
 							</h2>
-                        <form action="{{ route('process_login_user') }}" method="post" class="probootstrap-form">
+                        <form action="{{ route('getLogin') }}" method="post" class="probootstrap-form">
+							@csrf
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fname">Username or Gmail</label>
-                                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Username"> 
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Username"> 
                                     </div>
                                 </div>
                             </div>
@@ -135,17 +127,15 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fname">Password</label>
-                                        <input type="password" class="form-control" id="fname" name="fname" placeholder="Username"> 
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Username"> 
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group text-center">
                                 <input type="submit" class="btn btn-primary btn-lg center" id="submit" name="submit" value="login" style="border: 2px solid #1877f2;background-color: #1877f2;;color: #fff">
-                                <input type="submit" class="btn btn-primary btn-lg center" id="submit" name="submit" value="register" style="border: 2px solid #36a420;background-color: #36a420;;color: #fff"> </div>
+                                
+                                <button class="btn btn-primary btn-lg center" id="submit" name="submit" value="register" style="border: 2px solid #36a420;background-color: #36a420;;color: #fff"><a href="{{route('register')}}" style="color: white;">Register</a></button>
                         </form>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-content-img custom-form-img"> <img src="images/login.jpg" class="img-responsive" alt="registration-img"> </div>
                     </div>
                 </div>
             </div>

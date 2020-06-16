@@ -113,5 +113,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="project" />
+    <orderEntry type="module" module-name="cyber" />
   </component>
 </module>
