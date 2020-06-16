@@ -22,7 +22,6 @@ class Customer extends Migration
             $table->string('address')->nullable()->comment("Address");
             $table->string('birthday')->nullable()->comment('Birthday');
             $table->enum('gender', [0, 1, 2])->nullable()->comment("Gender");
-            $table->integer('idcard')->nullable()->comment('CMTND');
             $table->smallInteger('status')->default('1')->comment("1->Active; 2->No Active");
             $table->timestamps();
         });
