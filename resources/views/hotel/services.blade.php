@@ -23,32 +23,32 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{ asset("css/animate.css") }}">
+	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{ asset("css/icomoon.css") }}">
+	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
+	<link rel="stylesheet" href="css/bootstrap.css">
 
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="{{ asset("css/magnific-popup.css") }}">
+	<link rel="stylesheet" href="css/magnific-popup.css">
 
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{{ asset("css/flexslider.css") }}">
+	<link rel="stylesheet" href="css/flexslider.css">
 
 	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="{{ asset("css/owl.carousel.min.css") }}">
-	<link rel="stylesheet" href="{{ asset("css/owl.theme.default.min.css") }}">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	
 	<!-- Date Picker -->
-	<link rel="stylesheet" href="{{ asset("css/bootstrap-datepicker.css") }}">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
 	<!-- Flaticons  -->
-	<link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{ asset("css/style.css") }}">
+	<link rel="stylesheet" href="css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -70,8 +70,8 @@
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
 								<li ><a href="{{route('index')}}">Home</a></li>
-								<li class="active"><a href="{{route('hotel')}}">Hotels</a></li>
-								<li><a href="{{route('services')}}">Services</a></li>
+								<li ><a href="{{route('hotel')}}">Hotels</a></li>
+								<li class="active"><a href="{{route('services')}}">Services</a></li>
 								<li><a href="{{route('blog')}}">Blog</a></li>
 								<li><a href="{{route('about')}}">About</a></li>
 								<li><a href="{{route('login')}}">Contact</a></li>
@@ -84,14 +84,14 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url({{ asset('images/cover-img-4.jpg') }});">
+			   	<li style="background-image: url(images/cover-img-3.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h2>by colorlib.com</h2>
-				   					<h1>Hotel Overview</h1>
+				   					<h1>Our Services</h1>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -101,50 +101,98 @@
 		  	</div>
 		</aside>
 
-		<div class="colorlib-wrap">
+		<div id="colorlib-services">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="wrap-division">
-									<div class="col-md-12 col-md-offset-0 heading2 animate-box">
-										<h2>{{ $hotel->name }}</h2>
-									</div>
-									<div class="row">
-										@foreach($room as $rooms)
-										<div class="col-md-12 animate-box">
-											<div class="room-wrap">
-												
-													<div class="row">
-														
-															<div class="col-md-6 col-sm-6">
-																<div class="room-img" style="background-image: url({{ asset('images/room-1.jpg') }});"></div>
-															</div>
-															<div class="col-md-6 col-sm-6">
-																<div class="desc">
-																	<h2>{{ $rooms->name }}</h2>
-																	<p class="price"><span>${{ $rooms->rates }}</span> <small>/ night</small></p>
-																	{{-- <p>{{ $rooms->describe }}</p> --}}
-
-																</div>
-															</div>
-													</div>
-											</div>
-										</div>
-										@endforeach
-									</div>
-								</div>
-							</div>
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-around"></i>
+							</span>
+							<h3>Amazing Travel</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
 						</div>
 					</div>
-
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-boat"></i>
+							</span>
+							<h3>Our Cruises</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-car"></i>
+							</span>
+							<h3>Book Your Trip</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-postcard"></i>
+							</span>
+							<h3>Nice Support</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
+		<div id="colorlib-testimony" class="colorlib-light-grey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+						<h2>Our Satisfied Guests says</h2>
+						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 animate-box">						
+						<div class="owl-carousel2">
+							<div class="item">
+								<div class="testimony text-center">
+									<span class="img-user" style="background-image: url(images/person1.jpg);"></span>
+									<span class="user">Alysha Myers</span>
+									<small>Miami Florida, USA</small>
+									<blockquote>
+										<p>" A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+									</blockquote>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony text-center">
+									<span class="img-user" style="background-image: url(images/person2.jpg);"></span>
+									<span class="user">James Fisher</span>
+									<small>New York, USA</small>
+									<blockquote>
+										<p>One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+									</blockquote>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony text-center">
+									<span class="img-user" style="background-image: url(images/person3.jpg);"></span>
+									<span class="user">Jacob Webb</span>
+									<small>Athens, Greece</small>
+									<blockquote>
+										<p>Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+									</blockquote>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+
 	
-		<div id="colorlib-subscribe" style="background-image: url({{ asset('images/img_bg_2.jpg') }});" data-stellar-background-ratio="0.5">
+		<div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row">
@@ -244,27 +292,27 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 
 	<!-- jQuery -->
-	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
-	<script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Owl carousel -->
-	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+	<script src="js/owl.carousel.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-	<script src="{{ asset('js/magnific-popup-options.js') }}"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
 	<!-- Date Picker -->
-	<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
 	<!-- Stellar Parallax -->
-	<script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+	<script src="js/jquery.stellar.min.js"></script>
 
 	<!-- Main -->
-	<script src="{{ asset('js/main.js') }}"></script>
+	<script src="js/main.js"></script>
 
 	</body>
 </html>

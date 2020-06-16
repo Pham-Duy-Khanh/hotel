@@ -21,7 +21,7 @@
 	<meta name="twitter:card" content="" />
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{{ asset("css/animate.css") }}">
 	<!-- Icomoon Icon Fonts-->
@@ -38,7 +38,7 @@
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="{{ asset("css/owl.carousel.min.css") }}">
 	<link rel="stylesheet" href="{{ asset("css/owl.theme.default.min.css") }}">
-	
+
 	<!-- Date Picker -->
 	<link rel="stylesheet" href="{{ asset("css/bootstrap-datepicker.css") }}">
 	<!-- Flaticons  -->
@@ -56,7 +56,7 @@
 
 	</head>
 	<body>
-		
+
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -115,9 +115,9 @@
 										@foreach($room as $rooms)
 										<div class="col-md-12 animate-box">
 											<div class="room-wrap">
-												
+
 													<div class="row">
-														
+
 															<div class="col-md-6 col-sm-6">
 																<div class="room-img" style="background-image: url({{ asset('images/room-1.jpg') }});"></div>
 															</div>
@@ -143,7 +143,7 @@
 			</div>
 		</div>
 
-	
+
 		<div id="colorlib-subscribe" style="background-image: url({{ asset('images/img_bg_2.jpg') }});" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -229,8 +229,10 @@
 					<div class="col-md-12 text-center">
 						<p>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
+Copyright &copy;
+<script>document.write(new Date().getFullYear());
+</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
 							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
 						</p>
 					</div>

@@ -11,25 +11,35 @@ use Illuminate\Routing\Controller as BaseController;
 use DB;
 use Request;
 use Session;
-use App\Model\Customer;
+
+
 
 
 class Controller extends BaseController
 {
+
+    protected $customer;
+
+    public function __contruct(
+        \App\Model\Customer $customer
+    ) {
+        $this->customer = $customer;
+    }
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     //login
     public function login(){
         return view('hotel.login');
     }
     //
-    public function process_login_user()
+    public function process_login_user(Request $req)
     {
-        $cus           = new Customer();
-        $cus->email    = Request::get('email');
-        $cus->pass = Request::get('pass');
-
-        $cus           = $cus->get_login($cus->email,$cus->pass);
-
+        
+        $email    = $req::get('email');
+        $pass = $req::get('password');
+        // $cus           = $this->get_login($email, $pass);
+        $cus           = $this->customer->get_login($email, $pass);
+        dd($cus);
 
         if(count($cus)==1&& $cus[0]->access==0){
             Session::put('ma_us',$cus[0]->customer_id);
@@ -68,6 +78,7 @@ class Controller extends BaseController
 	}
 	//profile
     public function profile(){
-        return view('profile.profile');
+        $show_profile = DB:: select( " select * from customer ");
+        return view('profile.profile',['show_profile'=>$show_profile]);
     }
 }

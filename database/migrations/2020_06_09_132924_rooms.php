@@ -16,7 +16,7 @@ class Rooms extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->integer('rooms_id', true)->comment('Rooms ID');
             $table->integer('hotel_id')->comment('Hotel ID');
-            $table->string('name')->comment("Rooms Name");
+            $table->string('room_name')->comment("Rooms Name");
             $table->integer('services_id')->comment('Services Id');
             $table->integer('acreage')->comment("Dien Tich");
             $table->integer('rates')->comment('Gia Phong');

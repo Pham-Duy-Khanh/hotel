@@ -7,13 +7,13 @@ use DB;
 class Customer {
 	public $table = 'customer';
 
-	public function get_login()
+	public function get_login($email, $pass)
     {
-    	$array = DB::select("select * from $this->table
-    		where email = ? and pass = ?
+    	$array = DB::select("select * from  'customer'
+    		where email = ? and password = ?
     		limit 1",[
-    			$this->email,
-    			$this->pass
+    			$email,
+                $pass,
     		]);
     	return $array;
     }

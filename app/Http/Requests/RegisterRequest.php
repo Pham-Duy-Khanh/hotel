@@ -19,7 +19,7 @@ class RegisterRequest extends FormRequest {
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
             'name' => 'required',
-            'cmnd' => 'required|max:8'
+            'cmnd' => 'required|max:12'
         ];
     }
 
@@ -31,7 +31,7 @@ class RegisterRequest extends FormRequest {
             'password.required'=> 'Không được để trống!',
             'password.min'=> 'Phải nhập mật khẩu lớn hơn 8 kí tự',
             'cmnd.required'=> 'Không được để trống!',
-            'cmnd.unique'=> 'Phải nhập nhỏ hơn 8 kí tự',
+            'cmnd.max'=> 'Phải nhập nhỏ hơn 12 kí tự',
             'confirm_password.required'=> 'Không được để trống!',
             'confirm_password.same'=> 'Mật khẩu không trùng khớp',
         ];
