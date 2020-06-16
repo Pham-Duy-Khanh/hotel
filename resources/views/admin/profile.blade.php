@@ -1,5 +1,6 @@
 
     @include('admin.content.header')
+    <link rel="stylesheet" href="{{asset('admin/css/date.css')}}">
     <!-- Sidebar End -->
 
     <!-- Main Container Start -->
@@ -29,153 +30,90 @@
 
                         <div class="profile-cover__info">
                             <ul class="nav">
-                                <li><strong>26</strong>Projects</li>
-                                <li><strong>33</strong>Followers</li>
-                                <li><strong>136</strong>Following</li>
+                                <li><strong></strong></li>
+                                <li><strong></strong></li>
+                                <li><strong></strong></li>
                             </ul>
                         </div>
                     </div>
                     <!-- Panel End -->
 
                     <!-- Panel Start -->
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Activity Feed</h3>
-                        </div>
+                    <!-- Panel End -->
+                    @foreach(Session::get('data') as $data)
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-content">
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">Email</span>
 
-                        <div class="panel-content panel-activity">
-                            <form action="#" class="panel-activity__status">
-                                <textarea name="user_activity" placeholder="Share what you've been up to..." class="form-control"></textarea>
-
-                                <div class="actions">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn-link" title="Post an Image" data-toggle="tooltip">
-                                            <i class="far fa-image"></i>
-                                        </button>
-
-                                        <button type="button" class="btn-link" title="Post an Video" data-toggle="tooltip">
-                                            <i class="fas fa-video"></i>
-                                        </button>
-
-                                        <button type="button" class="btn-link" title="Post an Idea" data-toggle="tooltip">
-                                            <i class="far fa-lightbulb"></i>
-                                        </button>
-
-                                        <button type="button" class="btn-link" title="Post an Question" data-toggle="tooltip">
-                                            <i class="fas fa-question-circle"></i>
-                                        </button>
+                                    <div class="col-md-10">
+                                        <input type="text" name="text" class="form-control" value="{{$data->email}}" disabled>
                                     </div>
-
-                                    <button type="submit" class="btn btn-sm btn-rounded btn-info">Post</button>
                                 </div>
-                            </form>
+                                <hr>
 
-                            <ul class="panel-activity__list">
-                                <li>
-                                    <i class="activity__list__icon fas fa-question-circle"></i>
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">First Name</span>
 
-                                    <div class="activity__list__header">
-                                        <img src="assets/img/avatars/01_40x40.png" alt="">
-                                        <a href="#">John Doe</a> Posted the question: <a href="#">How can I change my annual reports for the better effect?</a>
+                                    <div class="col-md-10">
+                                        <input type="text" name="text" class="form-control" value="{{$data->firstname}}">
                                     </div>
+                                </div>
+                                <hr>
 
-                                    <div class="activity__list__body entry-content">
-                                        <p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit. Voluptatibus ab a nostrum repudiandae dolorem ut quaerat veniam asperiores, rerum voluptatem magni dolores corporis! <em>Molestiae commodi nesciunt a, repudiandae repellendus ea.</em></p>
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">Last Name</span>
+
+                                    <div class="col-md-10">
+                                        <input type="text" name="text" class="form-control" value="{{$data->lastname}}">
                                     </div>
+                                </div>
+                                <hr>
 
-                                    <div class="activity__list__footer">
-                                        <a href="#"><i class="far fa-thumbs-up"></i>123</a>
-                                        <a href="#"><i class="far fa-comments"></i>23</a>
-                                        <span><i class="far fa-clock"></i>2 hours ago</span>
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">Phone</span>
+
+                                    <div class="col-md-10">
+                                        <input type="text" name="text" class="form-control" value="{{$data->phone}}">
                                     </div>
-                                </li>
+                                </div>
+                                <hr>
 
-                                <li>
-                                    <i class="activity__list__icon fas fa-question-circle"></i>
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">Address</span>
 
-                                    <div class="activity__list__header">
-                                        <img src="assets/img/avatars/01_40x40.png" alt="">
-                                        <a href="#">John Doe</a> Posted the question: <a href="#">How can I change my annual reports for the better effect?</a>
+                                    <div class="col-md-10">
+                                        <input type="text" name="text" class="form-control" value="{{$data->address}}">
                                     </div>
+                                </div>
+                                <hr>
 
-                                    <div class="activity__list__body entry-content">
-                                        <blockquote>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ab a nostrum repudiandae dolorem ut quaerat veniam asperiores, rerum voluptatem magni dolores corporis! Molestiae commodi nesciunt a, repudiandae repellendus ea.</p>
-                                        </blockquote>
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">Birthday</span>
+
+                                    <div class="col-md-10">
+                                        <input type="date" name="text" class="form-control" value="{{$data->birthday}}">
                                     </div>
+                                </div>
 
-                                    <div class="activity__list__footer">
-                                        <a href="#"><i class="far fa-thumbs-up"></i>123</a>
-                                        <a href="#"><i class="far fa-comments"></i>23</a>
-                                        <span><i class="far fa-clock"></i>2 hours ago</span>
+                                <hr>
+
+                                <div class="form-group row">
+                                    <span class="label-text col-md-2 col-form-label text-md-right">Gender</span>
+
+                                    <div class="col-md-10">
+                                        <input type="text" name="text" class="form-control" value="{{$data->gender}}">
                                     </div>
-                                </li>
-
-                                <li>
-                                    <i class="activity__list__icon far fa-image"></i>
-
-                                    <div class="activity__list__header">
-                                        <img src="assets/img/avatars/01_40x40.png" alt="">
-                                        <a href="#">John Doe</a> Uploaded 4 Image: <a href="#">Office Working Time</a>
-                                    </div>
-
-                                    <div class="activity__list__body entry-content">
-                                        <ul class="gallery">
-                                            <li><img src="assets/img/gallery/01.jpg" alt=""></li>
-                                            <li><img src="assets/img/gallery/02.jpg" alt=""></li>
-                                            <li><img src="assets/img/gallery/03.jpg" alt=""></li>
-                                            <li><img src="assets/img/gallery/04.jpg" alt=""></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="activity__list__footer">
-                                        <a href="#"><i class="far fa-thumbs-up"></i>123</a>
-                                        <a href="#"><i class="far fa-comments"></i>23</a>
-                                        <span><i class="far fa-clock"></i>2 hours ago</span>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <i class="activity__list__icon fas fa-question-circle"></i>
-
-                                    <div class="activity__list__header">
-                                        <img src="assets/img/avatars/01_40x40.png" alt="">
-                                        <a href="#">John Doe</a> Posted the question: <a href="#">How can I change my annual reports for the better effect?</a>
-                                    </div>
-
-                                    <div class="activity__list__body entry-content">
-                                        <blockquote>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ab a nostrum repudiandae dolorem ut quaerat veniam asperiores, rerum voluptatem magni dolores corporis! Molestiae commodi nesciunt a, repudiandae repellendus ea.</p>
-                                        </blockquote>
-                                    </div>
-
-                                    <div class="activity__list__footer">
-                                        <a href="#"><i class="far fa-thumbs-up"></i>123</a>
-                                        <a href="#"><i class="far fa-comments"></i>23</a>
-                                        <span><i class="far fa-clock"></i>2 hours ago</span>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <i class="activity__list__icon far fa-lightbulb"></i>
-
-                                    <div class="activity__list__header">
-                                        <img src="assets/img/avatars/01_40x40.png" alt="">
-                                        <a href="#">John Doe</a> bookmarked a page: <a href="#">Awesome Idea</a>
-                                    </div>
-
-                                    <div class="activity__list__footer">
-                                        <a href="#"><i class="far fa-thumbs-up"></i>123</a>
-                                        <a href="#"><i class="far fa-comments"></i>23</a>
-                                        <span><i class="far fa-clock"></i>2 hours ago</span>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                     <!-- Panel End -->
                 </div>
 
+                @foreach(Session::get('data') as $data)
                 <div class="col-lg-4">
                     <!-- Panel Start -->
                     <div class="panel">
@@ -193,15 +131,15 @@
                                 </tr>
                                 <tr>
                                     <th><i class="fas fa-birthday-cake"></i>Date of Birth</th>
-                                    <td>13 June 1983</td>
+                                    <td>{{$data->birthday}}</td>
                                 </tr>
                                 <tr>
                                     <th><i class="fas fa-map-marker-alt"></i>Locatoin</th>
-                                    <td>123 Lorem Steet, NY, United States.</td>
+                                    <td>{{$data->address}}</td>
                                 </tr>
                                 <tr>
                                     <th><i class="fas fa-mobile-alt"></i>Mobile No.</th>
-                                    <td><a href="tel:7328397510" class="btn-link">732-839-7510</a></td>
+                                    <td><a href="tel:7328397510" class="btn-link">{{$data->phone}}</a></td>
                                 </tr>
                                 <tr>
                                     <th><i class="fas fa-globe"></i>Website</th>
@@ -254,160 +192,8 @@
                         </div>
                     </div>
                     <!-- Panel End -->
-
-                    <!-- Panel Start -->
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">To-Do List</h3>
-
-                            <div class="dropdown">
-                                <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </button>
-
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-sync"></i>Update Data</a></li>
-                                    <li><a href="#"><i class="fa fa-times"></i>Remove Panel</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="todo--panel">
-                            <form action="#">
-                                <ul class="list-group" data-trigger="scrollbar">
-                                    <li class="list-group-item">
-                                        <label class="todo--label">
-                                            <input type="checkbox" name="checkbox" value="1" class="todo--input" checked>
-                                            <span class="todo--text">Schedule Meeting</span>
-                                        </label>
-
-                                        <a href="#" class="todo--remove">&times;</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <label class="todo--label">
-                                            <input type="checkbox" name="checkbox" value="2" class="todo--input">
-                                            <span class="todo--text">Call Clients To Follow-Up</span>
-                                        </label>
-
-                                        <a href="#" class="todo--remove">&times;</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <label class="todo--label">
-                                            <input type="checkbox" name="checkbox" value="3" class="todo--input" checked>
-                                            <span class="todo--text">Book Flight For Holiday</span>
-                                        </label>
-
-                                        <a href="#" class="todo--remove">&times;</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <label class="todo--label">
-                                            <input type="checkbox" name="checkbox" value="4" class="todo--input">
-                                            <span class="todo--text">Forward Important Tasks</span>
-                                        </label>
-
-                                        <a href="#" class="todo--remove">&times;</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <label class="todo--label">
-                                            <input type="checkbox" name="checkbox" value="6" class="todo--input">
-                                            <span class="todo--text">Important Tasks</span>
-                                        </label>
-
-                                        <a href="#" class="todo--remove">&times;</a>
-                                    </li>
-                                </ul>
-
-                                <div class="input-group">
-                                    <input type="text" name="todo" placeholder="Add New Task" class="form-control" autocomplete="off" required>
-
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn-link">+</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Panel End -->
-
-                    <!-- Panel Start -->
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Feeds &amp; Activities</h3>
-
-                            <div class="dropdown">
-                                <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </button>
-
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-sync"></i>Update Data</a></li>
-                                    <li><a href="#"><i class="fa fa-times"></i>Remove Panel</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="feeds-panel">
-                            <ul class="nav">
-                                <li>
-                                    <span class="time">2 mins</span>
-                                    <i class="fa fa-shopping-cart text-white bg-blue"></i>
-                                    <span class="text">New Order Received</span>
-                                </li>
-                                <li>
-                                    <span class="time">10 mins</span>
-                                    <i class="fa fa-user text-white bg-orange"></i>
-                                    <span class="text">Updated Profile Picture</span>
-                                </li>
-                                <li>
-                                    <span class="time">20 mins</span>
-                                    <i class="fa fa-comment text-white bg-red"></i>
-                                    <span class="text"><a href="#">John Doe</a> Commented on <a href="#">News #123</a></span>
-                                </li>
-                                <li>
-                                    <span class="time">21 mins</span>
-                                    <i class="fa fa-shopping-cart text-white bg-blue"></i>
-                                    <span class="text">New Order Received</span>
-                                </li>
-                                <li>
-                                    <span class="time">25 mins</span>
-                                    <i class="fa fa-user text-white bg-green"></i>
-                                    <span class="text">New User Registered</span>
-                                </li>
-                                <li>
-                                    <span class="time">25 mins</span>
-                                    <i class="fa fa-times text-white bg-dark"></i>
-                                    <span class="text">Order <a href="#">#24DP01</a> Rejected</span>
-                                </li>
-                                <li>
-                                    <span class="time">2 hours</span>
-                                    <i class="fa fa-comment text-white bg-red"></i>
-                                    <span class="text"><a href="#">John Doe</a> Commented on <a href="#">News #123</a></span>
-                                </li>
-                                <li>
-                                    <span class="time">3 hours</span>
-                                    <i class="fa fa-user text-white bg-orange"></i>
-                                    <span class="text">You Uploaded A Image</span>
-                                </li>
-                                <li>
-                                    <span class="time">4 hours</span>
-                                    <i class="fa fa-shopping-cart text-white bg-blue"></i>
-                                    <span class="text">New Order Received</span>
-                                </li>
-                                <li>
-                                    <span class="time">8 hours</span>
-                                    <i class="fa fa-user text-white bg-green"></i>
-                                    <span class="text">New User Registered</span>
-                                </li>
-                                <li>
-                                    <span class="time">22 hours</span>
-                                    <i class="fa fa-shopping-cart text-white bg-blue"></i>
-                                    <span class="text">New Order Received</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Panel End -->
                 </div>
+                @endforeach
             </div>
         </section>
         <!-- Main Content End -->

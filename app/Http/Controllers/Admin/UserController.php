@@ -72,7 +72,9 @@ class UserController extends Controller
         return redirect()->route('admin.login');
     }
 
-    public function profile() {
+    public function profile($adminId) {
+        $arr = $this->admin->checkAdmin($adminId);
+        \Illuminate\Support\Facades\Session::put('data', $arr);
         return view('admin.profile');
     }
 

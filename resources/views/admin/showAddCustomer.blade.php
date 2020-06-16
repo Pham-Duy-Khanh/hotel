@@ -38,7 +38,6 @@
                             <th>Address</th>
                             <th>Birthday</th>
                             <th>Gender</th>
-                            <th>CMTND</th>
                             <th>Status</th>
                             <th class="not-sortable">Actions</th>
                         </tr>
@@ -80,9 +79,6 @@
                                     <a href="#" class="btn-link">Khac</a>
                                 </td>
                             @endif
-                            <td>
-                                <a href="#" class="btn-link">{{$data->idcard}}</a>
-                            </td>
 
                             @if($data->status == "1")
                                 <td>

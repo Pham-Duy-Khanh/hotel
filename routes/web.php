@@ -28,7 +28,7 @@ Route::group(["prefix" => "admin"], function(){
 
     Route::get('dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
 
-    Route::get('profile',
+    Route::get('profile/{admin_id}',
         ['as' => 'getProfile', 'uses' => 'Admin\UserController@profile']);
 
     Route::get('lockScreen/{admin_id}',

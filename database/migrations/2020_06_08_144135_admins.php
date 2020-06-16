@@ -21,7 +21,7 @@ class Admins extends Migration
             $table->string('password')->comment("Password");
             $table->string('phone')->nullable()->comment("Phone");
             $table->string('address')->nullable()->comment("Address");
-            $table->string('birthday')->nullable()->comment('Birthday');
+            $table->date('birthday')->nullable()->comment('Birthday');
             $table->enum('gender', [0, 1, 2])->comment("Gender");
             $table->smallInteger('role')->default('1')->comment("1->Manager; 2->Staff");
             $table->smallInteger('status')->default('1')->comment("1->Active; 2->No Active");

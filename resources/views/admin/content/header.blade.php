@@ -134,7 +134,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('getProfile')}}"><i class="far fa-user"></i>Profile</a></li>
+                        <li><a href="{{ route('getProfile', Session::get('admin_id')) }}"><i class="far fa-user"></i>Profile</a></li>
                         <li><a href="mailbox_inbox.html"><i class="far fa-envelope"></i>Inbox</a></li>
                         <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
                         <li class="dropdown-divider"></li>
@@ -165,7 +165,7 @@
             <div class="profile--nav">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="{{route('getProfile')}}" class="nav-link" title="User Profile">
+                        <a href="{{ route('getProfile', Session::get('admin_id')) }}" class="nav-link" title="User Profile">
                             <i class="fa fa-user"></i>
                         </a>
                     </li>
@@ -349,7 +349,7 @@
 
                             <ul>
                                 <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                <li><a href="{{route('getProfile')}}">Profile</a></li>
+                                <li><a href="{{ route('getProfile', Session::get('admin_id')) }}">Profile</a></li>
                                 <li><a href="invoice.html">Invoice</a></li>
                                 <li><a href="login.html">Login</a></li>
                                 <li><a href="register.html">Register</a></li>
