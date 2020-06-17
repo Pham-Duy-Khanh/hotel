@@ -31,6 +31,9 @@ Route::group(["prefix" => "admin"], function(){
     Route::get('profile/{admin_id}',
         ['as' => 'getProfile', 'uses' => 'Admin\UserController@profile']);
 
+    Route::post('updateAdmin/{admin_id}',
+        ['as' => 'updateAdmin', 'uses' => 'Admin\UserController@updateAdmin']);
+
     Route::get('lockScreen/{admin_id}',
         ['as' => 'getLockScreen', 'uses' => 'Admin\UserController@getLockScreen']);
 

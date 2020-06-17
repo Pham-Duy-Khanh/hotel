@@ -29,4 +29,25 @@ class Admin {
         return $array;
     }
 
+    public function getAdmin($adminId) {
+        $arr = DB::select("select * from $this->table where admin_id = $adminId");
+        return $arr;
+    }
+
+    public function updateAdmin($adminId,$firstname,$lastname,$phone,$address,$birthday,$gender,$newPass) {
+        $arr = DB::table('admins')
+            ->where('admin_id', $adminId)
+            ->update([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'address' => $address,
+                'birthday' => $birthday,
+                'gender' => $gender,
+                'password' => $newPass
+            ]);
+        return $arr;
+
+    }
+
 }

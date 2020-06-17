@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 
 class UserController extends Controller
@@ -102,6 +103,29 @@ class UserController extends Controller
             }
         } else {
             return $this->logout();
+        }
+    }
+
+    public function updateAdmin($adminId) {
+        $firstname = $this->request->get('firstname');
+        $lastname = $this->request->get('lastname');
+        $phone = $this->request->get('phone');
+        $address = $this->request->get('address');
+        $birthday = $this->request->get('birthday');
+        $gender = $this->request->get('gender');
+        $password = $this->request->get('password');
+        $newPass = $this->request->get('newPassword');
+        $checkPass = $this->admin->getAdmin($adminId);
+        $dataPass = $checkPass[0]->password;
+        if ($password !== $dataPass) {
+            return redirect()->route('getProfile', $adminId)->with('messagesError', 'Incorrect password');
+        } else {
+            $update = $this->admin->updateAdmin($adminId, $firstname, $lastname, $phone, $address, $birthday, $gender,$newPass);
+            if ($update == '1') {
+                return redirect()->route('getProfile', $adminId)->with('messagesSuccess', 'Update Success');
+            } else {
+                return redirect()->route('getProfile', $adminId)->with('messagesError', 'Update failed');
+            }
         }
     }
 }
