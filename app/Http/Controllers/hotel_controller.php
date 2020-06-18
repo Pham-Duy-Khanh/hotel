@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
 use App\Hotel;
+use App\Room;
 
 class hotel_controller extends Controller {
     //index
@@ -24,15 +25,23 @@ class hotel_controller extends Controller {
     public function hotel_details($id){
 
         // $room= DB::table('rooms')->join('services', 'services.services_id', '=', 'rooms.services_id')->get();
-       
-        $room= DB::table('rooms')->get();
+
+        $room= DB::table('rooms')->join('hotels', 'hotels.hotel_id', '=', 'rooms.hotel_id')->where('hotels.hotel_id', $id)->get();
+       // dd($room);
+        // $room= DB::table('rooms')->get();
+
         $hotel = Hotel::find($id);
         
         return view('hotel.hotel_details', ['room' => $room,'hotel' => $hotel]);
     }
     //room
-    public function room(){
-        return view('hotel.room');
+    public function room($id){
+        // $room= DB::table('rooms')->get();
+        $hotel = Room::find($id);
+        $room= DB::table('rooms')->join('hotels', 'hotels.hotel_id', '=', 'rooms.hotel_id')->where('hotels.hotel_id', $id)->get();
+        
+        return view('hotel.room', ['hotel' => $hotel]);
+        
     }
     //Services
     public function services(){

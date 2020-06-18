@@ -21,7 +21,7 @@
 	<meta name="twitter:card" content="" />
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -38,7 +38,7 @@
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	
+
 	<!-- Date Picker -->
 	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
 	<!-- Flaticons  -->
@@ -56,7 +56,7 @@
 
 	</head>
 	<body>
-		
+
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -78,14 +78,16 @@
 
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-user"></i></span>  &nbsp;{{Session::get('email')}} </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('profile') }}" style="background-color: cadetblue;"><span><i class="fa fa-user" ></i></span> &nbsp; Manager My Account</a></li>
-                                <li><a href="{{ route('logout_user') }}" style="background-color: cadetblue;"><span><i class="fa fa-sign-out"></i></span> &nbsp;Logout</a></li>
-                               
-                            </ul>     
+                                <li><a href="{{ route('profile') }}" style="background-color: cadetblue;"><span><i class="fa fa-user" ></i></span> &nbsp;
+ Manager My Account</a></li>
+                                <li><a href="{{ route('logout_user') }}" style="background-color: cadetblue;"><span><i class="fa fa-sign-out"></i></span> &nbsp;
+Logout</a></li>
+
+                            </ul>
                             </li>
                    @else
                      <li><a href="{{route('login')}}">Contact</a></li>
-                       @endif 
+                       @endif
 							</ul>
 						</div>
 					</div>
@@ -122,7 +124,7 @@
 									<div class="col-md-6 col-sm-6 animate-box">
 										<div class="hotel-entry">
 											<a href="{{ route('hotel_details', ['id' => $hotel->hotel_id]) }}" class="hotel-img" style="background-image: url(images/hotel-1.jpg);">
-												
+
 											</a>
 											<div class="desc">
 												<p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p>
@@ -150,7 +152,7 @@
 			</div>
 		</div>
 
-	
+
 		<div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -236,8 +238,10 @@
 					<div class="col-md-12 text-center">
 						<p>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
+Copyright &copy;
+<script>document.write(new Date().getFullYear());
+</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
 							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
 						</p>
 					</div>

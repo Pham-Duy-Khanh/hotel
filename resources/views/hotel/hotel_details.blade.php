@@ -130,11 +130,13 @@
 													<div class="row">
 														
 															<div class="col-md-6 col-sm-6">
-																<div class="room-img" style="background-image: url({{ asset('images/room-1.jpg') }});"></div>
+																<a href="{{ route('room', ['id' => $rooms->rooms_id]) }}">
+																	<div class="room-img" style="background-image: url({{ asset('images/room-1.jpg') }});"></div>
+																</a>
 															</div>
 															<div class="col-md-6 col-sm-6">
 																<div class="desc">
-																	<h2>{{ $rooms->name }}</h2>
+																	<h2><a href="{{ route('room', ['id' => $rooms->rooms_id]) }}">{{ $rooms->name }}</a></h2>
 																	<p class="price"><span>${{ $rooms->rates }}</span> <small>/ night</small></p>
 																	{{-- <p>{{ $rooms->describe }}</p> --}}
 

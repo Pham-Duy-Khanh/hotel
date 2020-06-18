@@ -21,7 +21,7 @@ Route::get('logout_user','Controller@logout_user')->name('logout_user');
 Route::get('registration',"Controller@register")->name('register');
 Route::post('registration','Controller@insert')->name('insert_register');
 //room
-Route::get('room_hotel',"hotel_controller@room")->name('room');
+Route::get('room_hotel/{id}',"hotel_controller@room")->name('room');
 //profile
 Route::get('profile',"Controller@profile")->name('profile');
 //Services
