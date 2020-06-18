@@ -74,7 +74,18 @@
 								<li><a href="{{route('services')}}">Services</a></li>
 								<li><a href="{{route('blog')}}">Blog</a></li>
 								<li><a href="{{route('about')}}">About</a></li>
-								<li><a href="{{route('login')}}">Contact</a></li>
+								@if (Session::has('customer_id'))
+
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-user"></i></span>  &nbsp;{{Session::get('email')}} </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('profile') }}" style="background-color: cadetblue;"><span><i class="fa fa-user" ></i></span> &nbsp; Manager My Account</a></li>
+                                <li><a href="{{ route('logout_user') }}" style="background-color: cadetblue;"><span><i class="fa fa-sign-out"></i></span> &nbsp;Logout</a></li>
+                               
+                            </ul>     
+                            </li>
+                   @else
+                     <li><a href="{{route('login')}}">Contact</a></li>
+                       @endif 
 							</ul>
 						</div>
 					</div>

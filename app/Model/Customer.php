@@ -9,12 +9,10 @@ class Customer {
 
 	public function get_login($email, $pass)
     {
-    	$array = DB::select("select * from  'customer'
+    	$array = DB::select("select * from  customer
     		where email = ? and password = ?
-    		limit 1",[
-    			$email,
-                $pass,
-    		]);
+    		limit 1",[$email,$pass,]);
+        // dd($array);
     	return $array;
     }
 

@@ -11,45 +11,49 @@ use Illuminate\Routing\Controller as BaseController;
 use DB;
 use Request;
 use Session;
-
+use App\Model\Customer;
 
 
 
 class Controller extends BaseController
 {
 
-    protected $customer;
-
-    public function __contruct(
-        \App\Model\Customer $customer
-    ) {
-        $this->customer = $customer;
-    }
 
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     //login
     public function login(){
         return view('hotel.login');
     }
-    //
-    public function process_login_user(Request $req)
+    //get_login
+    public function login_post(Request $req)
     {
-        
-        $email    = $req::get('email');
-        $pass = $req::get('password');
-        // $cus           = $this->get_login($email, $pass);
-        $cus           = $this->customer->get_login($email, $pass);
-        dd($cus);
+    	$cus           = new Customer();
+		$cus->email    = Request::get('email');
+		$cus->pass = Request::get('password');
 
-        if(count($cus)==1&& $cus[0]->access==0){
-            Session::put('ma_us',$cus[0]->customer_id);
-            Session::put('email',$cus[0]->email);
-            Session::put('phone',$cus[0]->phone);
+		$cus           = $cus->get_login($cus->email,$cus->pass);
+		// dd($cus);
 
-            return redirect()->route("index")->with('messages',' Welcome user: ');
-        }
-        return redirect()->route('login')->with('error1','Đăng nhập sai');
+		if(count($cus)==1&& $cus[0]->status==1){
+			Session::put('customer_id',$cus[0]->customer_id);
+			Session::put('email',$cus[0]->email);
+			Session::put('password',$cus[0]->password);
+
+			return redirect()->route("index")->with('messages',' Welcome user: ');
+		}
+		return redirect()->route('login')->with('error1','Đăng nhập sai');
+
+
     }
+    //logout_user
+    public function logout_user()
+	{
+		Session::forget('customer_id');
+
+		// Session::flush();
+
+		return redirect()->route('index')->with('success','Đăng xuất thành công');
+	}
     //register
     public function register(){
         return view('hotel.registration');

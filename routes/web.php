@@ -15,10 +15,8 @@ Route::get("hotel", "hotel_controller@hotel")->name("hotel");
 Route::get("hotel_details/{id}", "hotel_controller@hotel_details")->name("hotel_details");
 //login 
 Route::get('login',"Controller@login")->name('login');
-// Route::post("login","Controller@process_login_user")
-//    ->name("process_login_user");
-
-Route::post('process_login_user', ['as' => 'getLogin', 'uses' => "Controller@process_login_user"]);
+Route::post('login',"Controller@login_post")->name('post_login');
+Route::get('logout_user','Controller@logout_user')->name('logout_user');
 //registration 
 Route::get('registration',"Controller@register")->name('register');
 Route::post('registration','Controller@insert')->name('insert_register');

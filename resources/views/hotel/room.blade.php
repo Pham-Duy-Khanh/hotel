@@ -66,7 +66,18 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                @if (Session::has('customer_id'))
+
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-user"></i></span>  &nbsp;{{Session::get('email')}} </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('profile') }}" style="background-color: cadetblue;"><span><i class="fa fa-user" ></i></span> &nbsp; Manager My Account</a></li>
+                                <li><a href="{{ route('logout_user') }}" style="background-color: cadetblue;"><span><i class="fa fa-sign-out"></i></span> &nbsp;Logout</a></li>
+                               
+                            </ul>     
+                            </li>
+                   @else
+                     <li><a href="{{route('login')}}">Contact</a></li>
+                       @endif 
               </ul>
             </div>
           </div>
@@ -98,9 +109,9 @@
         <section class="innerpage-wrapper">
             <div id="hotel-details" class="innerpage-section-padding">
                 <div class="container">
-                    <div class="row">           
+                    <div class="row mt-3">           
                         
-                        <div class="col-xs-12 col-sm-12 col-md-3 side-bar left-side-bar">
+                        <div class="col-xs-12 col-sm-12 col-md-3 mt-3 side-bar left-side-bar" style="margin-top: 147px">
                             
                             <div class="side-bar-block booking-form-block">
                                 <h2 class="selected-price">$568.00 <span>De Forte</span></h2>
@@ -242,23 +253,23 @@
                             </div><!-- end row -->
                         </div><!-- end columns -->
                         
-                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side" style="margin-top: 147px">
                             
                             <div class="detail-slider">
                                 <div class="feature-slider">
-                                    <div><img src="room/images/h-feature-1.jpg" class="img-responsive" alt="feature-img"/></div>
-                                    <div><img src="room/images/h-feature-2.jpg" class="img-responsive" alt="feature-img"/></div>
-                                    <div><img src="room/images/h-feature-3.jpg" class="img-responsive" alt="feature-img"/></div>
-                                    <div><img src="room/images/h-feature-4.jpg" class="img-responsive" alt="feature-img"/></div>
-                                    <div><img src="room/images/h-feature-5.jpg" class="img-responsive" alt="feature-img"/></div>
+                                    <div><img src="images/images/1.jpg" class="img-responsive" alt="feature-img"/></div>
+                                    <div><img src="images/images/2.jpg" class="img-responsive" alt="feature-img"/></div>
+                                    <div><img src="images/images/3.jpg" class="img-responsive" alt="feature-img"/></div>
+                                    <div><img src="images/images/4.jpg" class="img-responsive" alt="feature-img"/></div>
+                                    <div><img src="images/images/5.jpg" class="img-responsive" alt="feature-img"/></div>
                                 </div><!-- end feature-slider -->
                                 
                                 <div class="feature-slider-nav">
-                                    <div><img src="room/images/h-feature-thumb-1.jpg" class="img-responsive" alt="feature-thumb"/></div>
-                                    <div><img src="room/images/h-feature-thumb-2.jpg" class="img-responsive" alt="feature-thumb"/></div>
-                                    <div><img src="room/images/h-feature-thumb-3.jpg" class="img-responsive" alt="feature-thumb"/></div>
-                                    <div><img src="room/images/h-feature-thumb-4.jpg" class="img-responsive" alt="feature-thumb"/></div>
-                                    <div><img src="room/images/h-feature-thumb-5.jpg" class="img-responsive" alt="feature-thumb"/></div>
+                                    <div><img src="images/images/1.jpg" class="img-responsive" alt="feature-thumb"/></div>
+                                    <div><img src="images/images/2.jpg" class="img-responsive" alt="feature-thumb"/></div>
+                                    <div><img src="images/images/3.jpg" class="img-responsive" alt="feature-thumb"/></div>
+                                    <div><img src="images/images/4.jpg" class="img-responsive" alt="feature-thumb"/></div>
+                                    <div><img src="images/images/5.jpg" class="img-responsive" alt="feature-thumb"/></div>
                                 </div><!-- end feature-slider-nav -->
                             </div>  <!-- end detail-slider -->
 
