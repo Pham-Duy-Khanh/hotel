@@ -17,6 +17,9 @@ class Hotels extends Migration
             $table->integer('hotel_id', true)->comment('Hotel ID');
             $table->integer('admin_id')->comment('Admin Id');
             $table->char('hotel_name',250)->comment('Hotel Name');
+            $table->integer('matp')->comment('Ma Thanh Pho');
+            $table->integer('maqh')->comment('Ma Quan Huyen');
+            $table->integer('xaid')->comment('Ma Xa');
             $table->string('address')->nullable()->comment("Address");
             $table->char('count_star',250)->comment('Rating');
             $table->integer('services_id')->comment('Services Id');
@@ -24,6 +27,9 @@ class Hotels extends Migration
             $table->smallInteger('status');
             $table->date('create_at');
             $table->foreign('admin_id')->references('admin_id')->on('admins');
+            $table->foreign('matp')->references('matp')->on('tinhthanhpho');
+            $table->foreign('maqh')->references('maqh')->on('quanhuyen');
+            $table->foreign('xaid')->references('xaid')->on('xaphuongthitran');
             $table->foreign('services_id')->references('services_id')->on('services');
         });
     }
