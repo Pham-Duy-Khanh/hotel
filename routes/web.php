@@ -62,6 +62,21 @@ Route::group(["prefix" => "admin"], function(){
             ['as' => 'lockAccount', 'uses' => 'Admin\AdminController@lockAccount']);
     });
 
+    //Hotel manager
+    Route::group(["prefix" => "hotel"], function(){
+        Route::get('showAllHotel',
+            ['as' => 'showAllHotel', 'uses' => 'Admin\HotelController@showAllHotel']);
+
+        Route::get('createNewHotel',
+            ['as' => 'createNewHotel', 'uses' => 'Admin\HotelController@createNewHotel']);
+
+        Route::get('loadCity',
+            ['as' => 'loadCity', 'uses' => 'Admin\HotelController@loadCity']);
+
+        Route::get('loadDistrict',
+            ['as' => 'loadDistrict', 'uses' => 'Admin\HotelController@loadDistrict']);
+    });
+
 
 
 });

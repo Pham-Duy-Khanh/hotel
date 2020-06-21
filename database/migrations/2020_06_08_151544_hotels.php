@@ -20,7 +20,6 @@ class Hotels extends Migration
             $table->integer('matp')->comment('Ma Thanh Pho');
             $table->integer('maqh')->comment('Ma Quan Huyen');
             $table->integer('xaid')->comment('Ma Xa');
-            $table->string('address')->nullable()->comment("Address");
             $table->char('count_star',250)->comment('Rating');
             $table->integer('services_id')->comment('Services Id');
             $table->text('describe');

@@ -217,17 +217,17 @@
                 </li>
 
                 <li>
-                    <a href="#">Layouts</a>
+                    <a href="#">Hotels</a>
 
                     <ul>
                         <li>
                             <a href="#">
                                 <i class="fa fa-th"></i>
-                                <span>Page Layouts</span>
+                                <span>Hotel manager</span>
                             </a>
 
                             <ul>
-                                <li><a href="blank.html">Blank Page</a></li>
+                                <li><a href="{{route('showAllHotel')}}">Show Hotels</a></li>
                                 <li><a href="page-light.html">Page Light</a></li>
                                 <li><a href="sidebar-light.html">Sidebar Light</a></li>
                             </ul>
