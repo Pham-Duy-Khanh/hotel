@@ -64,4 +64,31 @@ class HotelController extends Controller
         return response(['data' => $quanHuyen]);
     }
 
+    public function fileUpload(\Illuminate\Http\Request $request) {
+        $_IMAGE = $request->file('file');
+        $filename = time().$_IMAGE->getClientOriginalName();
+        $uploadPath = 'public/images/item_images/';
+        $_IMAGE->move($uploadPath,$filename);
+
+        echo json_encode($filename);
+    }
+
+    public function removeUpload(\Illuminate\Http\Request $request)
+    {
+        try{
+            $image = str_replace('"', '', $request->file);
+            $directory = public_path() .  '/images/item_images/' . $image;
+            @unlink(public_path() .  '/images/item_images/' . $image );
+
+        }
+        catch(Exception $e) {
+            //echo 'Message: ' .$e->getMessage();
+        }
+        finally{
+            $message = "success";
+        }
+        return json_encode($image);
+
+    }
+
 }

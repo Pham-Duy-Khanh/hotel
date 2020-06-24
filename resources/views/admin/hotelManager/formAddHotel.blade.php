@@ -82,6 +82,16 @@
                             </div>
                             <hr>
 
+                            <div class="form-group row">
+                                <span class="label-text col-md-2 col-form-label text-md-right">Textarea</span>
+
+                                <div class="col-md-10">
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+                                        <i class="fa fa-image"></i> Upload Images
+                                    </button>
+                                </div>
+                            </div>
+
 
 
 
@@ -101,11 +111,110 @@
     </main>
     <!-- Main Container End -->
 </div>
-<!-- Wrapper End -->
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload Images</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" class="dropzone" method="post" enctype="multipart/form-data">
+                    {!! csrf_field() !!}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <!-- Scripts -->
 @include('admin.content.jsdefault')
 <script src="{{asset('admin/js/admin/loadAddress.js')}}"></script>
+<script>
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    Dropzone.autoDiscover = false;
+    var acceptedFileTypes = "image/*"; //dropzone requires this param be a comma separated list
+    // imageDataArray variable to set value in crud form
+    var imageDataArray = new Array;
+    // fileList variable to store current files index and name
+    var fileList = new Array;
+    var i = 0;
+
+    $(function(){
+
+        uploader = new Dropzone(".dropzone",{
+            url: "{{url('item/image/upload')}}",
+            paramName : "file",
+            uploadMultiple :false,
+            acceptedFiles : "image/*,video/*,audio/*",
+            addRemoveLinks: true,
+            forceFallback: false,
+            maxFilesize: 256, // Set the maximum file size to 256 MB
+            parallelUploads: 100,
+
+        });//end drop zone
+
+        uploader.on("success", function(file,response) {
+
+            imageDataArray.push(response)
+
+            fileList[i] = {
+                "serverFileName": response,
+                "fileName": file.name,
+                "fileId": i
+            };
+
+            i += 1;
+
+            $('#item_images').val(imageDataArray);
+
+        });
+
+        uploader.on("removedfile", function(file) {
+            var rmvFile = "";
+            for (var f = 0; f < fileList.length; f++) {
+
+                if (fileList[f].fileName == file.name) {
+
+                    // remove file from original array by database image name
+                    imageDataArray.splice(imageDataArray.indexOf(fileList[f].serverFileName), 1);
+                    $('#item_images').val(imageDataArray);
+
+                    // get removed database file name
+                    rmvFile = fileList[f].serverFileName;
+
+                    // get request to remove the uploaded file from server
+                    $.get( "{{url('item/image/delete')}}", { file: rmvFile } )
+                        .done(function( data ) {
+                            //console.log(data)
+                        });
+
+                    // reset imageDataArray variable to set value in crud form
+
+                    console.log(imageDataArray)
+                }
+            }
+
+        });
+
+
+    });
+</script>
 
 <!-- Page Level Scripts -->
 
