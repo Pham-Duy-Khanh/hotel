@@ -76,8 +76,11 @@ Route::group(["prefix" => "admin"], function(){
         Route::get('loadDistrict',
             ['as' => 'loadDistrict', 'uses' => 'Admin\HotelController@loadDistrict']);
 
-//        Route::get('test',
-//            ['as' => 'test', 'uses' => 'Admin\HotelController@test']);
+        Route::get('addHotel',
+            ['as' => 'addHotel', 'uses' => 'Admin\HotelController@addHotel']);
+
+        Route::get('addImage',
+            ['as' => 'addImage', 'uses' => 'Admin\HotelController@addImage']);
     });
 });
 Route::post('/item/image/upload', 'Admin\HotelController@fileUpload');

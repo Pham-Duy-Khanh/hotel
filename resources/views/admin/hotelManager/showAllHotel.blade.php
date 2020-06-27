@@ -27,21 +27,29 @@
                 <!-- Records Header End -->
             </div>
 
+            @if(Session::get('messageHotel'))
+                <div class="col-md-12">
+                    <div
+                        style="color: #265725;font-weight: 800; background-color: #d1ecf1; border-color: #bee5eb; padding: .75rem 1.25rem;">
+                        {{Session::get('messageHotel')}}
+                    </div>
+                </div>
+            @endif
+            <br>
+
             <div class="panel">
                 <!-- Records List Start -->
                 <div class="records--list" data-title="Orders Hotel">
                     <table id="recordsListView">
                         <thead>
                         <tr>
-                            <th>Order No</th>
                             <th>Hotel ID</th>
+                            <th>Hotel Image</th>
                             <th>Creator</th>
                             <th>Hotel Name</th>
-                            <th>Hotel Image</th>
                             <th>City</th>
                             <th>District</th>
                             <th>Wards</th>
-                            <th>Describle</th>
                             <th>Create At</th>
                             <th>Status</th>
                             <th class="not-sortable">Actions</th>
@@ -50,23 +58,20 @@
 
                         <tbody>
                         @foreach(Session::get('data') as $data)
-                        <tr data-function="page"
-                            data-page="<?php $i = 0; echo (int)($i / 10) ?>" <?php if ($i >= 10) echo "hidden" ?>>
-                            <td><?php echo ++$i ?></td>
+                        <tr data-function="page">
                             <td>
                                 <a href="#" class="btn-link">#{{$data->hotel_id}}</a>
+                            </td>
+                            <td>
+                                <img src="{{asset('public/images/item_images/'.$data->avatar_hotel)}}">
                             </td>
                             <td>
                                 <a href="#" class="btn-link">{{$data->firstname}} {{$data->lastname}}</a>
                             </td>
                             <td>{{$data->hotel_name}}</td>
-                            <td>
-                                <a href="#" class="btn-link">{{$data->hotel_name}}</a>
-                            </td>
                             <td>{{$data->name_tp}}</td>
                             <td>{{$data->name_qh}}</td>
                             <td>{{$data->name_xa}}</td>
-                            <td>{{$data->describe}}</td>
                             <td>{{ \Carbon\Carbon::parse($data->create_at)->format('d/m/Y')}}</td>
 
                             @if($data->status == "1")

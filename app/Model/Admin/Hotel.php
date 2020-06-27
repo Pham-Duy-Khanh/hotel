@@ -18,4 +18,33 @@ class Hotel {
         return $arr;
     }
 
+    public function addHotel($hotelName,$matp,$district,$commune,$dichvu,$description,$adminId) {
+        $date = date("Y-m-d");
+        $values = array(
+            'admin_id' => $adminId,
+            'hotel_name' => $hotelName,
+            'matp' => $matp,
+            'maqh' => $district,
+            'xaid' => $commune,
+            'count_star' => '1',
+            'services_id' => $dichvu,
+            'describe' => $description,
+            'status' => "1",
+            'create_at' => $date
+        );
+        $insert = DB::table('hotels')->insert($values);
+        return $insert;
+    }
+
+    public function getDataMax() {
+        $arr = DB::select("select MAX(hotel_id) from hotels");
+        return $arr;
+    }
+
+    public function updateHotel($maxHotel, $img) {
+        DB::table('hotels')
+            ->where('hotel_id', $maxHotel)
+            ->update(['avatar_hotel' => $img]);
+    }
+
 }

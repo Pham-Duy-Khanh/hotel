@@ -23,6 +23,7 @@ class Hotels extends Migration
             $table->char('count_star',250)->comment('Rating');
             $table->integer('services_id')->comment('Services Id');
             $table->text('describe');
+            $table->text('avatar_hotel')->nullable(true);
             $table->smallInteger('status');
             $table->date('create_at');
             $table->foreign('admin_id')->references('admin_id')->on('admins');
