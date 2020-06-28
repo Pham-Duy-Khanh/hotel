@@ -70,7 +70,16 @@
                                 <span class="label-text col-md-2 col-form-label text-md-right">Dich vu</span>
 
                                 <div class="col-md-10">
-                                    <input type="text" name="text" class="form-control" id="dichvu">
+                                    <div class="col-md-10">
+                                        @foreach(Session::get('services') as $data)
+                                            <label class="form-check">
+                                                <input type="checkbox" name="location[]" value="{{$data->services_id}}" class="form-check-input">
+                                                <span class="form-check-label">{{$data->name_services}}</span>
+                                            </label>
+
+                                            {{--                                        <input type="checkbox" name="chkl[ ]" value="{{$data->services_id}}" class="form-check-input">{{$data->name_services}}<br />--}}
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                             <hr>

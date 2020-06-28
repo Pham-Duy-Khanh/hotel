@@ -16,7 +16,6 @@ class Services extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->integer('services_id', true)->comment("services ID");
             $table->string('name_services')->comment("services Name");
-            $table->char('icon_link', 200)->comment('Link Icon');
             $table->text('describe')->comment('Describe');
         });
     }

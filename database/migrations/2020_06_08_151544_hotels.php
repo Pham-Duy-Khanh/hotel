@@ -21,7 +21,7 @@ class Hotels extends Migration
             $table->integer('maqh')->comment('Ma Quan Huyen');
             $table->integer('xaid')->comment('Ma Xa');
             $table->char('count_star',250)->comment('Rating');
-            $table->integer('services_id')->comment('Services Id');
+            $table->char('services_id', 250)->comment('Services Id');
             $table->text('describe');
             $table->text('avatar_hotel')->nullable(true);
             $table->smallInteger('status');
@@ -30,7 +30,6 @@ class Hotels extends Migration
             $table->foreign('matp')->references('matp')->on('tinhthanhpho');
             $table->foreign('maqh')->references('maqh')->on('quanhuyen');
             $table->foreign('xaid')->references('xaid')->on('xaphuongthitran');
-            $table->foreign('services_id')->references('services_id')->on('services');
         });
     }
 

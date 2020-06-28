@@ -81,7 +81,29 @@ Route::group(["prefix" => "admin"], function(){
 
         Route::get('addImage',
             ['as' => 'addImage', 'uses' => 'Admin\HotelController@addImage']);
+
+        Route::get('services',
+            ['as' => 'services', 'uses' => 'Admin\ServicesController@showServices']);
+
+        Route::get('addServices',
+            ['as' => 'addServices', 'uses' => 'Admin\ServicesController@addServices']);
+
+        Route::get('addServices',
+            ['as' => 'addServices', 'uses' => 'Admin\ServicesController@addServices']);
     });
+
+    Route::group(["prefix" => "services"], function(){
+        Route::get('showServices',
+            ['as' => 'showServices', 'uses' => 'Admin\ServicesController@showServices']);
+
+        Route::get('addServices',
+            ['as' => 'addServices', 'uses' => 'Admin\ServicesController@addServices']);
+
+        Route::get('deleteServices/{services_id}',
+            ['as' => 'deleteServices', 'uses' => 'Admin\ServicesController@deleteServices']);
+    });
+
+
 });
 Route::post('/item/image/upload', 'Admin\HotelController@fileUpload');
 Route::get('/item/image/delete', 'Admin\HotelController@removeUpload');

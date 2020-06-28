@@ -228,7 +228,7 @@
 
                             <ul>
                                 <li><a href="{{route('showAllHotel')}}">Show Hotels</a></li>
-                                <li><a href="page-light.html">Page Light</a></li>
+                                <li><a href="{{route('showServices')}}">Services</a></li>
                                 <li><a href="sidebar-light.html">Sidebar Light</a></li>
                             </ul>
                         </li>

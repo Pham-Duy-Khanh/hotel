@@ -4,7 +4,20 @@ $(document).ready(function () {
         var matp = $("#matp").val();
         var district = $("#district").val();
         var commune = $("#commune").val();
-        var dichvu = $("#dichvu").val();
+
+        var checkboxes = document.getElementsByName('location[]');
+        var vals = "";
+        for (var i=0, n=checkboxes.length;i<n;i++)
+        {
+            if (checkboxes[i].checked)
+            {
+                vals += ","+checkboxes[i].value;
+            }
+        }
+        if (vals) vals = vals.substring(1);
+
+
+
         var adminId = $("#admin_id").val();
         var description = $("#description").val();
         var item_images = $("#item_images").val();
@@ -33,12 +46,6 @@ $(document).ready(function () {
             $("#commune").css("border", "1px green solid");
         }
 
-        if (dichvu === '') {
-            $("#dichvu").css("border", "1px red solid");
-        } else {
-            $("#dichvu").css("border", "1px green solid");
-        }
-
         if (description === '') {
             $("#description").css("border", "1px red solid");
         } else {
@@ -60,7 +67,7 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        if (hotelName !== '' && matp !== '' && district !== '' && commune !== '' && dichvu !== '' && description !== '' && item_images !== '') {
+        if (hotelName !== '' && matp !== '' && district !== '' && commune !== '' && vals !== '' && description !== '' && item_images !== '') {
             $.ajax({
                     url: 'addHotel',
                     showLoading: 'true',
@@ -69,7 +76,7 @@ $(document).ready(function () {
                         "matp": matp,
                         "district": district,
                         "commune": commune,
-                        "dichvu": dichvu,
+                        "dichvu": vals,
                         "description": description,
                         "item_images": item_images,
                         "adminId": adminId

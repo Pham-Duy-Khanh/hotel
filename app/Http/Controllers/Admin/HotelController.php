@@ -37,6 +37,11 @@ class HotelController extends Controller
     protected $imageHotel;
 
     /**
+     * @var \App\Model\Admin\Services
+     */
+    protected $services;
+
+    /**
      * HotelController constructor.
      * @param \App\Model\Admin\Hotel $hotel
      * @param \App\Model\Admin\City $city
@@ -49,7 +54,8 @@ class HotelController extends Controller
         \App\Model\Admin\City $city,
         \App\Model\Admin\QuanHuyen $quanHuyen,
         \App\Model\Admin\XaPhuong $xaPhuong,
-        \App\Model\Admin\ImageHotel $imageHotel
+        \App\Model\Admin\ImageHotel $imageHotel,
+        \App\Model\Admin\Services $services
     )
     {
         $this->hotel = $hotel;
@@ -57,6 +63,7 @@ class HotelController extends Controller
         $this->quanhuyen = $quanHuyen;
         $this->xaPhuong = $xaPhuong;
         $this->imageHotel = $imageHotel;
+        $this->services = $services;
     }
 
 
@@ -73,9 +80,11 @@ class HotelController extends Controller
         $city = $this->city->getAllCity();
         $quanHuyen = $this->quanhuyen->getAllQuanHuyen();
         $xaPhuong = $this->xaPhuong->getAllXaPhuong();
+        $services = $this->services->getDataServices();
         \Illuminate\Support\Facades\Session::put('city', $city);
         \Illuminate\Support\Facades\Session::put('quanHuyen', $quanHuyen);
         \Illuminate\Support\Facades\Session::put('xaPhuong', $xaPhuong);
+        \Illuminate\Support\Facades\Session::put('services', $services);
         return view('admin.hotelManager.formAddHotel');
     }
 
