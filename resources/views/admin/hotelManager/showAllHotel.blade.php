@@ -88,7 +88,7 @@
                                     <a href="#" class="btn-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
 
                                     <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Edit</a>
+                                        <a href="{{ route('loadOnHotel', $data->hotel_id) }}" class="dropdown-item">Edit</a>
                                         <a href="#" class="dropdown-item">Delete</a>
                                     </div>
                                 </div>

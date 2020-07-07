@@ -47,4 +47,12 @@ class Hotel {
             ->update(['avatar_hotel' => $img]);
     }
 
+    public function loadOnHotel($hotelId) {
+        $array = DB::select("select * from $this->table
+    		where hotel_id = ?
+    		limit 1",[
+            $hotelId
+        ]);
+        return $array;
+    }
 }

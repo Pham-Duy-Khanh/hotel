@@ -40,4 +40,9 @@ class ServicesController extends Controller
         $this->services->deleteServices($servicesId);
         return redirect('admin/services/showServices')->with('messagesService', 'Xoa thành công');
     }
+
+    public function loadServices() {
+        $arr = $this->services->getDataServices();
+        return response(['data' => $arr]);
+    }
 }

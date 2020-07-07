@@ -85,11 +85,9 @@ Route::group(["prefix" => "admin"], function(){
         Route::get('services',
             ['as' => 'services', 'uses' => 'Admin\ServicesController@showServices']);
 
-        Route::get('addServices',
-            ['as' => 'addServices', 'uses' => 'Admin\ServicesController@addServices']);
+        Route::get('loadOnHotel/{hotelId}',
+            ['as' => 'loadOnHotel', 'uses' => 'Admin\HotelController@loadOnHotel']);
 
-        Route::get('addServices',
-            ['as' => 'addServices', 'uses' => 'Admin\ServicesController@addServices']);
     });
 
     Route::group(["prefix" => "services"], function(){
@@ -101,6 +99,9 @@ Route::group(["prefix" => "admin"], function(){
 
         Route::get('deleteServices/{services_id}',
             ['as' => 'deleteServices', 'uses' => 'Admin\ServicesController@deleteServices']);
+
+        Route::get('loadServices',
+            ['as' => 'loadServices', 'uses' => 'Admin\ServicesController@loadServices']);
     });
 
 

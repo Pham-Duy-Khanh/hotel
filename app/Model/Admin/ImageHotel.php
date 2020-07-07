@@ -27,4 +27,12 @@ class ImageHotel {
     }
 
 
+    public function loadImage($hotelId) {
+        $arr = DB::select("select * from $this->table
+    		where hotel_id = ?
+    		",[
+            $hotelId
+        ]);
+        return $arr;
+    }
 }

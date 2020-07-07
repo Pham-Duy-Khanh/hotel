@@ -66,7 +66,6 @@ class HotelController extends Controller
         $this->services = $services;
     }
 
-
     public function showAllHotel() {
         $arr = $this->hotel->getDataHotel();
         \Illuminate\Support\Facades\Session::put('data', $arr);
@@ -119,7 +118,6 @@ class HotelController extends Controller
             $image = str_replace('"', '', $request->file);
             $directory = public_path() .  '/images/item_images/' . $image;
             @unlink(public_path() .  '/images/item_images/' . $image );
-
         }
         catch(Exception $e) {
             //echo 'Message: ' .$e->getMessage();
@@ -177,6 +175,38 @@ class HotelController extends Controller
             redirect('admin/hotel/showAllHotel')->with('messageHotel', 'Create a successful hotel');
         }
         return true;
+    }
+
+    public function loadOnHotel($hotelId) {
+        $arr = $this->hotel->loadOnHotel($hotelId);
+        foreach ($arr as $item) {
+            $sevice = $item->services_id;
+            $value = explode(',' , $sevice);
+            \Illuminate\Support\Facades\Session::put('sevice', $value);
+        }
+        $imageHotel = $this->imageHotel->loadImage($hotelId);
+        $images[] = '';
+        foreach ($imageHotel as $image) {
+            $images[] = $image->name_images_hotel;
+        }
+
+        if (($key = array_search('', $images)) !== false) {
+            unset($images[$key]);
+        }
+        $imageData = implode('","', $images);
+
+        $city = $this->city->getAllCity();
+        $quanHuyen = $this->quanhuyen->getAllQuanHuyen();
+        $xaPhuong = $this->xaPhuong->getAllXaPhuong();
+        $services = $this->services->getDataServices();
+        \Illuminate\Support\Facades\Session::put('city', $city);
+        \Illuminate\Support\Facades\Session::put('quanHuyen', $quanHuyen);
+        \Illuminate\Support\Facades\Session::put('xaPhuong', $xaPhuong);
+        \Illuminate\Support\Facades\Session::put('services', $services);
+        \Illuminate\Support\Facades\Session::put('data', $arr);
+        \Illuminate\Support\Facades\Session::put('imageHotel', $imageHotel);
+        \Illuminate\Support\Facades\Session::put('imageData', $imageData);
+        return view('admin.hotelManager.formEditHotel');
     }
 
 }
